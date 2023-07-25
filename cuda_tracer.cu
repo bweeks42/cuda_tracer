@@ -336,7 +336,7 @@ __global__ void ray_trace(Sphere *spheres, int sphere_count, float3 *pixels, int
     int idx = j*max_x + i;
     int max_depth = 50;
     int inv_j = image_height - 1 - j;
-    int n_samples = 40;
+    int n_samples = 200;
     float3 final_color = {0.0, 0.0, 0.0};
     int sample = 0;
     float scale = 1.0/(float)n_samples;
@@ -373,7 +373,7 @@ int main() {
     // Setup image parameters
     ImageParams params;
     params.aspect_ratio = 3.0/2.0;
-    params.image_width = pow(2, 12);
+    params.image_width = pow(2, 14);
     params.image_height = (int)((float)params.image_width/params.aspect_ratio);
     params.origin = {13.0, 2.0, 3.0};
     params.look_at = {0.0, 0.0, 0.0};
